@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV – Martin Falkfält</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; color-scheme: light; }
+    body { background: #F0EDE7; font-family: 'DM Sans', sans-serif; font-weight: 300; -webkit-font-smoothing: antialiased; }
+    .cv-root { max-width: 860px; margin: 2rem auto; background: #FAF7F2; box-shadow: 0 4px 40px rgba(0,0,0,0.12); }
+    @media (max-width: 600px) { body { background: #FAF7F2; } .cv-root { margin: 0; box-shadow: none; } }
+    .cv-header { background: #1A1A18; padding: 3rem 3.5rem 2.5rem; position: relative; overflow: hidden; }
+    .cv-header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 80% 20%, rgba(43,78,110,0.4) 0%, transparent 65%), radial-gradient(ellipse 50% 80% at 10% 90%, rgba(74,124,89,0.25) 0%, transparent 60%); pointer-events: none; }
+    .cv-header-inner { position: relative; z-index: 1; }
+    .cv-eyebrow { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.2rem; font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8BB4CC; font-weight: 500; }
+    .cv-eyebrow::before { content: ''; display: block; width: 30px; height: 1px; background: #8BB4CC; flex-shrink: 0; }
+    .cv-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 300; line-height: 0.95; color: #ffffff; letter-spacing: -0.02em; }
+    .cv-name em { font-style: italic; color: #C5A558; }
+    .cv-tagline { font-family: 'Cormorant Garamond', serif; font-size: clamp(0.95rem, 2vw, 1.2rem); font-weight: 300; color: rgba(255,255,255,0.6); margin-top: 0.8rem; letter-spacing: 0.02em; }
+    .cv-contact-bar { display: flex; flex-wrap: wrap; gap: 0.6rem 2rem; margin-top: 1.8rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.12); font-size: 0.75rem; letter-spacing: 0.05em; }
+    .cv-contact-bar span { color: rgba(255,255,255,0.5); display: flex; align-items: center; gap: 5px; }
+    .cv-contact-bar strong { color: #C5A558; font-weight: 400; }
+    .cv-contact-bar a { color: #C5A558; text-decoration: none; }
+    .cv-body { background: #FAF7F2; padding: 2.8rem 3.5rem; }
+    .sec-label { font-size: 0.62rem; letter-spacing: 0.3em; text-transform: uppercase; color: #2D7A4F; font-weight: 600; margin-bottom: 1.1rem; display: flex; align-items: center; gap: 0.7rem; }
+    .sec-label::before { content: ''; display: block; width: 24px; height: 1px; background: #2D7A4F; flex-shrink: 0; }
+    .profile-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem, 1.8vw, 1.18rem); font-weight: 400; line-height: 1.8; color: #1A2E1D; }
+    .sec-divider { border: none; border-top: 1px solid #D8D3CB; margin: 2rem 0; }
+    .exp-item { margin-bottom: 1.7rem; }
+    .exp-top { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; margin-bottom: 2px; }
+    .exp-role { font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem, 1.8vw, 1.18rem); font-weight: 600; color: #1A1A18; }
+    .exp-date { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: #A07C30; font-weight: 600; white-space: nowrap; }
+    .exp-company { font-size: 0.8rem; color: #5A5A55; margin-bottom: 5px; letter-spacing: 0.04em; }
+    .exp-desc { font-size: 0.9rem; line-height: 1.7; color: #2E2E2B; font-weight: 300; }
+    .exp-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+    .exp-tag { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 10px; border: 1px solid #5A9E72; color: #1A4A2A; background: #E8F5EE; font-weight: 500; border-radius: 2px; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+    .skill-group { margin-bottom: 1rem; }
+    .skill-group-label { font-size: 0.63rem; letter-spacing: 0.2em; text-transform: uppercase; color: #1A1A18; font-weight: 600; margin-bottom: 4px; }
+    .skill-group-items { font-size: 0.88rem; line-height: 1.65; color: #4A4A46; font-weight: 300; }
+    .edu-item { margin-bottom: 0.9rem; }
+    .edu-name { font-family: 'Cormorant Garamond', serif; font-size: 1.02rem; font-weight: 600; color: #1A1A18; }
+    .edu-sub { font-size: 0.82rem; color: #5A5A55; font-weight: 300; }
+    .network-list { list-style: none; padding: 0; margin: 0; }
+    .network-list li { font-size: 0.9rem; line-height: 1.7; color: #2E2E2B; font-weight: 300; padding-left: 1.2rem; position: relative; margin-bottom: 0.35rem; }
+    .network-list li::before { content: '—'; position: absolute; left: 0; color: #C5A558; font-weight: 400; }
+    .cv-footer { background: #1A1A18; padding: 1.8rem 3.5rem; position: relative; overflow: hidden; text-align: center; }
+    .cv-footer::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 100% 50%, rgba(197,165,88,0.1), transparent 60%); pointer-events: none; }
+    .cv-footer-intro { position: relative; z-index: 1; font-size: 0.85rem; line-height: 1.7; color: rgba(255,255,255,0.5); font-weight: 300; font-style: italic; font-family: 'Cormorant Garamond', serif; margin-bottom: 1rem; }
+    .cv-footer-intro strong { color: #C5A558; font-weight: 400; font-style: normal; }
+    .cv-footer-cta { position: relative; z-index: 1; font-family: 'Cormorant Garamond', serif; font-size: clamp(1.1rem, 2.2vw, 1.4rem); font-weight: 400; color: #ffffff; line-height: 1.5; padding-top: 1rem; border-top: 1px solid rgba(197,165,88,0.25); }
+    .cv-footer-cta em { color: #C5A558; font-style: italic; }
+    @media (max-width: 600px) {
+      .cv-header { padding: 2rem 1.4rem 1.6rem; }
+      .cv-body { padding: 1.8rem 1.4rem; }
+      .cv-footer { padding: 1.4rem 1.4rem; }
+      .two-col { grid-template-columns: 1fr; gap: 0; }
+      .exp-top { flex-direction: column; gap: 2px; }
+    }
+  </style>
+</head>
+<body>
+<div class="cv-root">
+
+  <div class="cv-header">
+    <div class="cv-header-inner">
+      <div class="cv-eyebrow">Curriculum Vitae</div>
+      <h1 class="cv-name">Martin <em>Falkfält</em></h1>
+      <p class="cv-tagline">Affärsutveckling &amp; Sporttech — Golf · Tech · Ledarskap</p>
+      <div class="cv-contact-bar">
+        <span>⌖ <strong>Falkenberg / Göteborg</strong></span>
+        <span>in <a href="https://www.linkedin.com/in/martin-falkfält" target="_blank"><strong>linkedin.com/in/martin-falkfält</strong></a></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cv-body">
+
+    <div class="sec-label">Profil</div>
+    <p class="profile-text">Jag befinner mig i skärningspunkten mellan tech och sport – och det är precis där jag vill vara. Med över 15 års erfarenhet från golfbranschen kombinerar jag teknisk bakgrund som utvecklare med djup affärsförståelse, brett branschnätverk och ett genuint engagemang för idrott och hälsa. Genom min roll på OnTag arbetar jag nära Svenska Golfförbundet med integrationer mot GIT, golfens IT-system. Jag drivs av att bygga, skapa och utveckla – produkter, relationer och affärer – och vill på sikt vara med och utveckla svensk idrott och vårt samhälle.</p>
+
+    <hr class="sec-divider">
+    <div class="sec-label">Erfarenhet</div>
+
+    <div class="exp-item">
+      <div class="exp-top">
+        <span class="exp-role">Affärsutvecklande säljare &amp; Produktsamordnare</span>
+        <span class="exp-date">2025 – nu</span>
+      </div>
+      <p class="exp-company">OnTag AB — Caddies Europe-koncernen</p>
+      <p class="exp-desc">Var med och sålde OnTag till Caddies Europe 2024, varefter produkten blev ett eget bolag i koncernen. Ansvarar för affärsutveckling och försäljning mot golfklubbar, partners och återförsäljare. I praktiken har rollen vuxit långt utöver titeln – affär och teknisk kontaktperson mot Svenska Golfförbundet (SGF), Incident Manager, scorekortdesign, QA av produktutveckling, leverantörskoordinering och supporttäckning.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">B2B-försäljning</span>
+        <span class="exp-tag">Golftech</span>
+        <span class="exp-tag">Produktsamordning</span>
+        <span class="exp-tag">Incidenthantering</span>
+        <span class="exp-tag">SGF</span>
+        <span class="exp-tag">Leverantörskontakter</span>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-top">
+        <span class="exp-role">Affärsverksamhetsansvarig, Golf (L6)</span>
+        <span class="exp-date">2021 – 2025</span>
+      </div>
+      <p class="exp-company">TietoEvry</p>
+      <p class="exp-desc">Ansvarade för hela golfaffären inom TietoEvry med personalansvar. Produktportföljen inkluderade OnTag scorekort och ett antal digitala tjänster mot den svenska golfmarknaden. Kombinerade affärsansvar med djup produktkunskap och täta kundrelationer.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">Personalansvar</span>
+        <span class="exp-tag">Affärsansvar</span>
+        <span class="exp-tag">Digitala tjänster</span>
+        <span class="exp-tag">Golfmarknaden</span>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-top">
+        <span class="exp-role">Teknisk projektledare &amp; Systemutvecklare</span>
+        <span class="exp-date">2015 – 2021</span>
+      </div>
+      <p class="exp-company">Quicksearch AB — Halmstad</p>
+      <p class="exp-desc">Arbetade med stora kunder som Tele2, Viasat, Länsförsäkringar och ComHem. Kombinerade teknisk systemutveckling (integrationer, egna produkter) med rollen som projektledare mot uppdragsgivare. Initierade och drev ett internt hälsoprojekt (QS Wellness) för medarbetarnas välmående.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">Systemutveckling</span>
+        <span class="exp-tag">Integrationer</span>
+        <span class="exp-tag">Projektledning</span>
+        <span class="exp-tag">C# / .NET</span>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-top">
+        <span class="exp-role">Systemutvecklare, Produktansvarig &amp; Verksamhetskonsult</span>
+        <span class="exp-date">2008 – 2015</span>
+      </div>
+      <p class="exp-company">EVRY One Halmstad AB (f.d. Systeam)</p>
+      <p class="exp-desc">Bred roll med systemutveckling i .NET, produktägarskap, projektledning och verksamhetskonsulting mot den svenska golfmarknaden. Agerade länk mellan kunder, säljare och utvecklare – byggde förmågan att se helheten från beställning till leverans. Representerade företaget på mässor och events.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">.NET / C#</span>
+        <span class="exp-tag">Produktägarskap</span>
+        <span class="exp-tag">Golfmarknaden</span>
+        <span class="exp-tag">Kundrelationer</span>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-top">
+        <span class="exp-role">Personlig tränare &amp; Kostrådgivare</span>
+        <span class="exp-date">2012 – 2019</span>
+      </div>
+      <p class="exp-company">TK Kroppskontroll / Strandhälsan AB — Parallellt</p>
+      <p class="exp-desc">Certifierad crossfit-instruktör och personlig tränare med inriktning mot funktionell träning. Diplomerad kostrådgivare. Tränade grupper och individer i Strandhälsans program "Kom i form". Praktisk erfarenhet av ledarskap, motivation och beteendeförändring.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">Coaching</span>
+        <span class="exp-tag">Ledarskap</span>
+        <span class="exp-tag">Crossfit</span>
+        <span class="exp-tag">Kost &amp; hälsa</span>
+      </div>
+    </div>
+
+    <hr class="sec-divider">
+
+    <div class="two-col">
+      <div>
+        <div class="sec-label">Kompetenser</div>
+        <div class="skill-group">
+          <p class="skill-group-label">Affär &amp; försäljning</p>
+          <p class="skill-group-items">B2B-försäljning, affärsutveckling, kundrelationer, förhandling, CRM, budgetansvar</p>
+        </div>
+        <div class="skill-group">
+          <p class="skill-group-label">Tech &amp; produkt</p>
+          <p class="skill-group-items">C# / .NET, REST API, integrationer, produktsamordning, QA, incidenthantering, SaaS, AI-verktyg (Claude, ChatGPT)</p>
+        </div>
+        <div class="skill-group">
+          <p class="skill-group-label">Bransch</p>
+          <p class="skill-group-items">Golfbranschen, scorekort, digitala klubbtjänster, sporttech</p>
+        </div>
+        <div class="skill-group">
+          <p class="skill-group-label">Ledarskap</p>
+          <p class="skill-group-items">Personalansvar, projektledning, coachning, tvärfunktionellt samarbete</p>
+        </div>
+      </div>
+      <div>
+        <div class="sec-label">Utbildning &amp; certifikat</div>
+        <div class="edu-item">
+          <p class="edu-name">Systemutvecklare .NET</p>
+          <p class="edu-sub">Ljud &amp; Bildskolan, Varberg — 2005–2007</p>
+        </div>
+        <div class="edu-item">
+          <p class="edu-name">Crossfit Level 1 Trainer</p>
+          <p class="edu-sub">Certifierad instruktör, 2013</p>
+        </div>
+        <div class="edu-item">
+          <p class="edu-name">Diplomerad kostrådgivare</p>
+          <p class="edu-sub">Kost, hälsa &amp; prestation</p>
+        </div>
+        <div class="edu-item">
+          <p class="edu-name">Praktisk projektstyrning PPS steg 1</p>
+          <p class="edu-sub">2015</p>
+        </div>
+        <div class="edu-item">
+          <p class="edu-name">Eleiko Strength Coach Level 1</p>
+          <p class="edu-sub">Olympiska lyft, 2012</p>
+        </div>
+        <div style="margin-top: 1.1rem;">
+          <p class="skill-group-label">Sport &amp; intressen</p>
+          <p class="skill-group-items">Golf · Padel · Fotboll · Crossfit · Traillöpning · Personlig utveckling</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="sec-divider">
+
+    <div class="sec-label">Nätverk &amp; branschnärvaro</div>
+    <ul class="network-list">
+      <li>Brett kontaktnät bland svenska golfklubbar, anläggningar och leverantörer</li>
+      <li>Etablerade relationer med SGF och god kännedom om golfens digitala ekosystem via GIT-integrationer</li>
+      <li>Väletablerat nätverk inom näringslivet i Halland</li>
+    </ul>
+
+  </div>
+
+  <div class="cv-footer">
+    <p class="cv-footer-intro">Intresserad av roller inom <strong>Svenska Golfförbundet</strong> där min tekniska bakgrund, affärsförståelse och passion för golf kan bidra till att utveckla och modernisera sporten.</p>
+    <p class="cv-footer-cta">De bästa idéerna föds i bra samtal. <em>Hör av dig så tar vi en kaffe.</em></p>
+  </div>
+
+</div>
+</body>
+</html>
