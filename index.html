@@ -49,8 +49,9 @@
     .cv-footer::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 100% 50%, rgba(197,165,88,0.1), transparent 60%); pointer-events: none; }
     .cv-footer-intro { position: relative; z-index: 1; font-size: 0.85rem; line-height: 1.7; color: rgba(255,255,255,0.5); font-weight: 300; font-style: italic; font-family: 'Cormorant Garamond', serif; margin-bottom: 1rem; }
     .cv-footer-intro strong { color: #C5A558; font-weight: 400; font-style: normal; }
-    .cv-footer-cta { position: relative; z-index: 1; font-family: 'Cormorant Garamond', serif; font-size: clamp(1.1rem, 2.2vw, 1.4rem); font-weight: 400; color: #ffffff; line-height: 1.5; padding-top: 1rem; border-top: 1px solid rgba(197,165,88,0.25); }
+    .cv-footer-cta { position: relative; z-index: 1; font-family: 'Cormorant Garamond', serif; font-size: clamp(1.1rem, 2.2vw, 1.4rem); font-weight: 400; color: #ffffff; line-height: 1.5; padding-top: 1rem; border-top: 1px solid rgba(197,165,88,0.25); display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 1.5rem; }
     .cv-footer-cta em { color: #C5A558; font-style: italic; }
+    .cv-footer-btn { display: inline-flex; align-items: center; gap: 8px; background: transparent; border: 1px solid #C5A558; color: #C5A558; padding: 8px 18px; text-decoration: none; font-family: 'DM Sans', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; white-space: nowrap; }
     @media (max-width: 600px) {
       .cv-header { padding: 2rem 1.4rem 1.6rem; }
       .cv-body { padding: 1.8rem 1.4rem; }
@@ -223,8 +224,14 @@
   </div>
 
   <div class="cv-footer">
-    <p class="cv-footer-intro">Intresserad av roller inom <strong>Svenska Golfförbundet</strong> där min tekniska bakgrund, affärsförståelse och passion för golf kan bidra till att utveckla och modernisera sporten.</p>
-    <p class="cv-footer-cta">De bästa idéerna föds i bra samtal. <em>Hör av dig så tar vi en kaffe.</em></p>
+    <p class="cv-footer-intro">Intresserad av samarbeten där tech möter golf och sport — hos organisationer som vill digitalisera och utveckla sportens infrastruktur.</p>
+    <p class="cv-footer-cta">
+      <span>De bästa idéerna föds i bra samtal. <em>Hör av dig så tar vi en kaffe.</em></span>
+      <a href="https://www.linkedin.com/in/martin-falkfält" target="_blank" class="cv-footer-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        Kontakta mig på LinkedIn
+      </a>
+    </p>
   </div>
 
 </div>
